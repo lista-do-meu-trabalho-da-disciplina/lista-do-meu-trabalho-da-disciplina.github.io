@@ -1,10 +1,11 @@
+
 HTML
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio de Algoritmos - v2.0</title>
+    <title>Portfólio Final - Algoritmos</title>
     <style>
         :root {
             --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -17,7 +18,7 @@ HTML
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             background: var(--bg-gradient);
             color: var(--text-main);
             margin: 0;
@@ -32,17 +33,27 @@ HTML
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             margin: 0;
             background: linear-gradient(to right, #38bdf8, #818cf8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        .author-tag {
+            color: var(--accent-color);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
         header p {
             color: var(--text-muted);
             font-size: 1.1rem;
-            margin-top: 0.5rem;
+            max-width: 600px;
+            margin: 0.5rem auto 0 auto;
         }
 
         main {
@@ -105,7 +116,14 @@ HTML
         .card p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .tech-used {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-family: monospace;
         }
 
         .btn-link {
@@ -124,7 +142,6 @@ HTML
             opacity: 0.9;
         }
 
-        /* Seção de Tecnologias exigida pelo enunciado */
         .tech-box {
             background: rgba(255, 255, 255, 0.02);
             border: 1px dashed var(--card-border);
@@ -165,63 +182,86 @@ HTML
 <body>
 
     <header>
-        <h1>Repositório de Algoritmos v2.0</h1>
-        <p>Evolução do portfólio acadêmico e registro de entregas</p>
+        <h1>Portfólio Consolidado de Algoritmos</h1>
+        <div class="author-tag">Autor: [Seu Nome Completo]</div>
+        <p>Repositório unificado com todos os artefatos, códigos e exercícios práticos desenvolvidos durante o semestre letivo.</p>
     </header>
 
     <main>
         
         <section>
-            <h2>Listas de Exercícios</h2>
+            <h2>Artefatos e Entregas do Semestre</h2>
             <div class="grid">
+                
                 <div class="card">
                     <div>
                         <h3>Lista 1: Conceitos Básicos</h3>
-                        <span class="status">✓ Entregue</span>
-                        <p>Variáveis, tipos de dados e estruturas sequenciais simples.</p>
+                        <span class="status">✓ Concluído</span>
+                        <p><strong>Objetivo:</strong> Compreender a manipulação de variáveis, tipos primitivos de dados e a execução de blocos sequenciais estruturados.</p>
+                        <div class="tech-used">TECNOLOGIAS: Portugol / VisuAlg</div>
                     </div>
-                    <a href="#" class="btn-link" target="_blank">Ver Solução</a>
+                    <a href="https://github.com/[SEU_USUARIO]/[SEU_REPOSITORIO]/tree/main/lista1" class="btn-link" target="_blank">Acessar Artefatos</a>
                 </div>
 
                 <div class="card">
                     <div>
                         <h3>Lista 2: Estruturas Condicionais</h3>
-                        <span class="status">✓ Entregue</span>
-                        <p>Exercícios práticos utilizando as estruturas de decisão SE e CASO.</p>
+                        <span class="status">✓ Concluído</span>
+                        <p><strong>Objetivo:</strong> Implementar desvios de fluxo lógico utilizando estruturas de tomada de decisão lógicas simples e compostas (SE, SENÃO e CASO).</p>
+                        <div class="tech-used">TECNOLOGIAS: C++ / Fluxogramas</div>
                     </div>
-                    <a href="#" class="btn-link" target="_blank">Ver Solução</a>
+                    <a href="https://github.com/[SEU_USUARIO]/[SEU_REPOSITORIO]/tree/main/lista2" class="btn-link" target="_blank">Acessar Artefatos</a>
                 </div>
 
                 <div class="card">
                     <div>
-                        <h3>Lista 3: Estruturas de Repetição</h3>
-                        <span class="status">✓ Entregue</span>
-                        <p>Laços de repetição utilizando ENQUANTO, REPITA e PARA.</p>
+                        <h3>Lista 3: Laços de Repetição</h3>
+                        <span class="status">✓ Concluído</span>
+                        <p><strong>Objetivo:</strong> Automatizar tarefas iterativas por meio de loops estruturados com testes lógicos no início, fim e por contagem (ENQUANTO, REPITA, PARA).</p>
+                        <div class="tech-used">TECNOLOGIAS: C++ / Resolução de Problemas</div>
                     </div>
-                    <a href="#" class="btn-link" target="_blank">Ver Solução</a>
+                    <a href="https://github.com/[SEU_USUARIO]/[SEU_REPOSITORIO]/tree/main/lista3" class="btn-link" target="_blank">Acessar Artefatos</a>
                 </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Lista 4: Estruturas Homogêneas</h3>
+                        <span class="status">✓ Concluído</span>
+                        <p><strong>Objetivo:</strong> Criação e manipulação de arrays unidimensionais e multidimensionais (Vetores e Matrizes) para armazenamento temporário ordenado.</p>
+                        <div class="tech-used">TECNOLOGIAS: C++ / Arrays</div>
+                    </div>
+                    <a href="https://github.com/[SEU_USUARIO]/[SEU_REPOSITORIO]/tree/main/lista4" class="btn-link" target="_blank">Acessar Artefatos</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Lista 5: Modularização</h3>
+                        <span class="status">✓ Concluído</span>
+                        <p><strong>Objetivo:</strong> Decomposição de problemas complexos em subalgoritmos utilizando funções e procedimentos com escopos de variáveis isolados.</p>
+                        <div class="tech-used">TECNOLOGIAS: C++ (Funções e Parâmetros)</div>
+                    </div>
+                    <a href="https://github.com/[SEU_USUARIO]/[SEU_REPOSITORIO]/tree/main/lista5" class="btn-link" target="_blank">Acessar Artefatos</a>
+                </div>
+
             </div>
         </section>
 
         <section>
-            <h2>Tecnologias Utilizadas</h2>
+            <h2>Documentação do Ambiente de Portfólio</h2>
             <div class="tech-box">
                 <div class="tech-group">
                     <strong>Modelos de Inteligência Artificial:</strong>
-                    <span class="badge">Gemini</span>
+                    <span class="badge">Gemini (Co-autor)</span>
                     <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 5px;">
-                        O modelo Gemini foi utilizado como assistente de IA na co-autoria do projeto para refinamento semântico do HTML5, estruturação do CSS responsável e formatação do texto.
+                        O modelo Gemini atuou na otimização da experiência do usuário (UX), estruturando o design responsivo, gerando as fichas textuais descritivas dos objetivos e revisando a consistência dos hiperlinks.
                     </p>
                 </div>
                 <div class="tech-group">
-                    <strong>Tecnologias Web:</strong>
-                    <span class="badge">HTML5</span>
-                    <span class="badge">CSS3 (Grid, Flexbox & Custom Properties)</span>
-                </div>
-                <div class="tech-group">
-                    <strong>Hospedagem e Controle de Versão:</strong>
-                    <span class="badge">Git</span>
-                    <span class="badge">GitHub / GitHub Pages</span>
+                    <strong>Tecnologias Web & Infraestrutura:</strong>
+                    <span class="badge">HTML5 Semântico</span>
+                    <span class="badge">CSS3 Custom Properties</span>
+                    <span class="badge">Git / GitHub.com</span>
+                    <span class="badge">GitHub Pages (Hospedagem)</span>
                 </div>
             </div>
         </section>
@@ -229,7 +269,7 @@ HTML
     </main>
 
     <footer>
-        <p>Desenvolvido para a disciplina de Algoritmos.</p>
+        <p>© 2026 - Desenvolvido para a avaliação da disciplina de Algoritmos.</p>
     </footer>
 
 </body>
