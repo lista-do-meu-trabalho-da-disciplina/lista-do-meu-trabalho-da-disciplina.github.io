@@ -1,275 +1,86 @@
-HTML
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Final - Algoritmos</title>
-    <style>
-        :root {
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent-color: #38bdf8;
-            --success-color: #4ade80;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avaliação de Portfólio</title>
 
-        body {
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-gradient);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            line-height: 1.6;
-        }
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    margin:0;
+}
 
-        header {
-            text-align: center;
-            padding: 4rem 1rem 2rem 1rem;
-        }
+header{
+    background:#1e88e5;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
 
-        header h1 {
-            font-size: 2.6rem;
-            margin: 0;
-            background: linear-gradient(to right, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+main{
+    width:80%;
+    margin:30px auto;
+}
 
-        .author-tag {
-            color: var(--accent-color);
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.15);
+}
 
-        header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0.5rem auto 0 auto;
-        }
+h2{
+    color:#1e88e5;
+}
 
-        main {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
+ul{
+    line-height:30px;
+}
+</style>
 
-        section {
-            margin-bottom: 4rem;
-        }
-
-        section h2 {
-            font-size: 1.8rem;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            backdrop-filter: blur(8px);
-            transition: transform 0.2s, border-color 0.2s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-color);
-        }
-
-        .card h3 {
-            margin-top: 0;
-            font-size: 1.3rem;
-            color: var(--text-main);
-        }
-
-        .status {
-            display: inline-block;
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            background: rgba(74, 222, 128, 0.1);
-            color: var(--success-color);
-            margin-bottom: 1rem;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .tech-used {
-            font-size: 0.8rem;
-            color: var(--accent-color);
-            margin-bottom: 1.5rem;
-            font-family: monospace;
-        }
-
-        .btn-link {
-            display: block;
-            text-align: center;
-            background: var(--accent-color);
-            color: #0f172a;
-            text-decoration: none;
-            padding: 0.7rem;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: opacity 0.2s;
-        }
-
-        .btn-link:hover {
-            opacity: 0.9;
-        }
-
-        .tech-box {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px dashed var(--card-border);
-            border-radius: 12px;
-            padding: 2rem;
-        }
-
-        .tech-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-group strong {
-            color: var(--accent-color);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.08);
-            padding: 0.3rem 0.7rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            font-family: monospace;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--card-border);
-        }
-    </style>
 </head>
 <body>
 
-    <header>
-        <h1>Portfólio Consolidado de Algoritmos</h1>
-        <div class="author-tag">Autor: [Seu Nome Completo]</div>
-        <p>Repositório unificado com todos os artefatos, códigos e exercícios práticos desenvolvidos durante o semestre letivo.</p>
-    </header>
+<header>
+<h1>Avaliação de Portfólio</h1>
+<p>Disciplina de Algoritmos</p>
+</header>
 
-    <main>
-        
-        <section>
-            <h2>Artefatos e Entregas do Semestre</h2>
-            <div class="grid">
-                
-                <div class="card">
-                    <div>
-                        <h3>Lista 1: Conceitos Básicos</h3>
-                        <span class="status">✓ Concluído</span>
-                        <p><strong>Objetivo:</strong> Compreender a manipulação de variáveis, tipos primitivos de dados e a execução de blocos sequenciais estruturados.</p>
-                        <div class="tech-used">TECNOLOGIAS: Portugol / VisuAlg</div>
-                    </div>
-                    <a href="https://github.com/[SEU_USUARIO]/[SEU_REPOSITORIO]/tree/main/lista1" class="btn-link" target="_blank">Acessar Artefatos</a>
-                </div>
+<main>
 
-                <div class="card">
-                    <div>
-                        <h3>Lista 2: Estruturas Condicionais</h3>
-                        <span class="status">✓ Concluído</span>
-                        <p><strong>Objetivo:</strong> Implementar desvios de fluxo lógico utilizando estruturas de tomada de decisão lógicas simples e compostas (SE, SENÃO e CASO).</p>
-                        <div class="tech-used">TECNOLOGIAS: C++ / Fluxogramas</div>
-                    </div>
-                    <a href="https://github.com/[SEU_USUARIO]/[SEU_REPOSITORIO]/tree/main/lista2" class="btn-link" target="_blank">Acessar Artefatos</a>
-                </div>
+<div class="card">
 
-                <div class="card">
-                    <div>
-                        <h3>Lista 3: Laços de Repetição</h3>
-                        <span class="status">✓ Concluído</span>
-                        <p><strong>Objetivo:</strong> Automatizar tarefas iterativas por meio de loops estruturados com testes lógicos no início, fim e por contagem (ENQUANTO, REPITA, PARA).</p>
-                        <div class="tech-used">TECNOLOGIAS: C++ / Resolução de Problemas</div>
-                    </div>
-                    <a href="https://github.com/[SEU_USUARIO]/[SEU_REPOSITORIO]/tree/main/lista3" class="btn-link" target="_blank">Acessar Artefatos</a>
-                </div>
+<h2>Colega Avaliado</h2>
 
-                <div class="card">
-                    <div>
-                        <h3>Lista 4: Estruturas Homogêneas</h3>
-                        <span class="status">✓ Concluído</span>
-                        <p><strong>Objetivo:</strong> Criação e manipulação de arrays unidimensionais e multidimensionais (Vetores e Matrizes) para armazenamento temporário ordenado.</p>
-                        <div class="tech-used">TECNOLOGIAS: C++ / Arrays</div>
-                    </div>
-                    <a href="https://github.com/[SEU_USUARIO]/[SEU_REPOSITORIO]/tree/main/lista4" class="btn-link" target="_blank">Acessar Artefatos</a>
-                </div>
+<p><strong>Nome:</strong> Andressa Almeida</p>
 
-                <div class="card">
-                    <div>
-                        <h3>Lista 5: Modularização</h3>
-                        <span class="status">✓ Concluído</span>
-                        <p><strong>Objetivo:</strong> Decomposição de problemas complexos em subalgoritmos utilizando funções e procedimentos com escopos de variáveis isolados.</p>
-                        <div class="tech-used">TECNOLOGIAS: C++ (Funções e Parâmetros)</div>
-                    </div>
-                    <a href="https://github.com/[SEU_USUARIO]/[SEU_REPOSITORIO]/tree/main/lista5" class="btn-link" target="_blank">Acessar Artefatos</a>
-                </div>
+<p><strong>Link:</strong>
+<a href="https://andressaalmadaaluno-prog.github.io/portfolio-andressa/" target="_blank">
+Acessar Portfólio
+</a>
+</p>
 
-            </div>
-        </section>
+<h2>Pontos Positivos</h2>
 
-        <section>
-            <h2>Documentação do Ambiente de Portfólio</h2>
-            <div class="tech-box">
-                <div class="tech-group">
-                    <strong>Modelos de Inteligência Artificial:</strong>
-                    <span class="badge">Gemini (Co-autor)</span>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 5px;">
-                        O modelo Gemini atuou na otimização da experiência do usuário (UX), estruturando o design responsivo, gerando as fichas textuais descritivas dos objetivos e revisando a consistência dos hiperlinks.
-                    </p>
-                </div>
-                <div class="tech-group">
-                    <strong>Tecnologias Web & Infraestrutura:</strong>
-                    <span class="badge">HTML5 Semântico</span>
-                    <span class="badge">CSS3 Custom Properties</span>
-                    <span class="badge">Git / GitHub.com</span>
-                    <span class="badge">GitHub Pages (Hospedagem)</span>
-                </div>
-            </div>
-        </section>
+<ul>
+<li>Layout organizado e agradável.</li>
+<li>Menu simples e fácil de navegar.</li>
+<li>Conteúdo bem explicado para iniciantes.</li>
+</ul>
 
-    </main>
+<h2>Sugestões de Melhoria</h2>
 
-    <footer>
-        <p>© 2026 - Desenvolvido para a avaliação da disciplina de Algoritmos.</p>
-    </footer>
+<ul>
+<li>Adicionar uma seção "Sobre" com informações da autora.</li>
+<li>Publicar as atividades realizadas durante o semestre.</li>
+<li>Explicar cada exercício com objetivo, código e resultado.</li>
+</ul>
+
+</div>
+
+</main>
 
 </body>
 </html>
