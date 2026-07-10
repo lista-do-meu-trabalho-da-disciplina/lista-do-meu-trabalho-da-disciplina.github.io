@@ -1,967 +1,411 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Vinilza Te da Costa">
-  <meta name="description" content="Portfólio acadêmico com as entregas realizadas na disciplina de Algoritmos.">
-  <title>Portfólio de Entregas | Algoritmos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio de Algoritmos e Programação</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --background-color: #f8fafc;
+            --card-background: #ffffff;
+            --text-color: #1e293b;
+            --text-light: #64748b;
+            --border-color: #e2e8f0;
+        }
 
-  <style>
-    :root {
-      --azul: #0b3d91;
-      --azul-escuro: #082d6b;
-      --azul-claro: #1456c3;
-      --destaque: #f2b705;
-      --fundo: #f4f7fb;
-      --branco: #ffffff;
-      --texto: #1f2937;
-      --texto-sec: #4b5563;
-      --borda: #dbe3ef;
-      --ok: #0f766e;
-      --alerta: #92400e;
-      --sombra: 0 10px 28px rgba(15, 23, 42, 0.08);
-      --raio: 18px;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
 
-    body {
-      min-height: 100vh;
-      background: var(--fundo);
-      color: var(--texto);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.65;
-    }
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
 
-    a {
-      color: inherit;
-    }
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
 
-    .skip-link {
-      position: absolute;
-      left: -999px;
-      top: 10px;
-      background: var(--azul-escuro);
-      color: white;
-      padding: 10px 14px;
-      border-radius: 10px;
-      z-index: 2000;
-    }
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
 
-    .skip-link:focus {
-      left: 10px;
-    }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
 
-    header {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.20), transparent 34%),
-        linear-gradient(135deg, var(--azul-escuro), var(--azul-claro));
-      color: white;
-      padding: 56px 20px 42px;
-      text-align: center;
-    }
+        .card {
+            background: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
-    header .identificacao {
-      display: inline-flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
 
-    .pill {
-      display: inline-block;
-      border: 1px solid rgba(255,255,255,0.32);
-      background: rgba(255,255,255,0.12);
-      color: white;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
+        .card h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.15rem;
+            color: var(--text-color);
+        }
 
-    header h1 {
-      max-width: 980px;
-      margin: 0 auto 14px;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      line-height: 1.15;
-    }
+        .card p {
+            margin: 0 0 1.5rem 0;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
 
-    header p {
-      max-width: 900px;
-      margin: 0 auto;
-      color: rgba(255,255,255,0.92);
-      font-size: 1.06rem;
-    }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
 
-    nav {
-      background: var(--azul-escuro);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 8px 18px rgba(8,45,107,0.18);
-    }
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
 
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px;
-    }
+        .links-list {
+            list-style: none;
+            padding: 0;
+        }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-      padding: 8px 12px;
-      border-radius: 10px;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
+        .links-list li {
+            background: var(--card-background);
+            margin-bottom: 0.75rem;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    nav a:hover,
-    nav a:focus {
-      background: rgba(255,255,255,0.15);
-      outline: none;
-      transform: translateY(-1px);
-    }
+        .links-list a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
 
-    main {
-      max-width: 1180px;
-      margin: 32px auto;
-      padding: 0 18px 46px;
-    }
+        .links-list a:hover {
+            text-decoration: underline;
+        }
 
-    section {
-      scroll-margin-top: 96px;
-      margin-bottom: 28px;
-    }
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
+        }
 
-    .card {
-      background: var(--branco);
-      border: 1px solid var(--borda);
-      border-radius: var(--raio);
-      box-shadow: var(--sombra);
-      padding: clamp(20px, 4vw, 30px);
-    }
-
-    h2 {
-      color: var(--azul);
-      margin-bottom: 16px;
-      font-size: clamp(1.45rem, 3vw, 1.9rem);
-      border-left: 7px solid var(--azul-claro);
-      padding-left: 12px;
-      line-height: 1.25;
-    }
-
-    p {
-      color: var(--texto-sec);
-      margin-bottom: 12px;
-    }
-
-    .resumo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 14px;
-      margin-top: 22px;
-    }
-
-    .resumo-item {
-      background: #f8fbff;
-      border: 1px solid var(--borda);
-      border-radius: 14px;
-      padding: 16px;
-    }
-
-    .resumo-item strong {
-      display: block;
-      color: var(--azul);
-      font-size: 1.55rem;
-      line-height: 1.1;
-    }
-
-    .resumo-item span {
-      color: var(--texto-sec);
-      font-size: 0.95rem;
-    }
-
-    .observacao {
-      border-left: 5px solid var(--destaque);
-      background: #fffbeb;
-      color: #6b4e00;
-      padding: 14px 16px;
-      border-radius: 12px;
-      margin-top: 18px;
-    }
-
-    .bloco {
-      margin-top: 30px;
-    }
-
-    .bloco-titulo {
-      background: #eef4ff;
-      color: var(--azul);
-      border: 1px solid var(--borda);
-      border-radius: 14px;
-      padding: 13px 16px;
-      font-size: 1.08rem;
-      margin-bottom: 16px;
-    }
-
-    .entregas {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 18px;
-    }
-
-    .entrega {
-      background: #fcfdff;
-      border: 1px solid var(--borda);
-      border-radius: 16px;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      min-height: 100%;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .entrega:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 22px rgba(15, 23, 42, 0.08);
-    }
-
-    .tag {
-      display: inline-block;
-      width: fit-content;
-      background: #e8f0ff;
-      color: var(--azul);
-      font-size: 0.84rem;
-      padding: 5px 10px;
-      border-radius: 999px;
-      margin-bottom: 8px;
-      font-weight: 700;
-    }
-
-    .entrega h3 {
-      color: var(--azul);
-      font-size: 1.08rem;
-      line-height: 1.35;
-    }
-
-    .detalhes {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-    }
-
-    .detalhes div {
-      border-top: 1px solid #eef2f7;
-      padding-top: 10px;
-    }
-
-    .detalhes dt {
-      color: var(--texto);
-      font-weight: 700;
-      font-size: 0.92rem;
-    }
-
-    .detalhes dd {
-      color: var(--texto-sec);
-      margin-left: 0;
-      font-size: 0.95rem;
-    }
-
-    .links {
-      margin-top: auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      background: var(--azul);
-      color: white;
-      padding: 9px 13px;
-      border-radius: 10px;
-      font-weight: 700;
-      transition: background 0.2s ease, transform 0.2s ease;
-      font-size: 0.95rem;
-    }
-
-    .btn:hover,
-    .btn:focus {
-      background: var(--azul-claro);
-      transform: translateY(-1px);
-      outline: none;
-    }
-
-    .lista {
-      margin-left: 20px;
-      color: var(--texto-sec);
-    }
-
-    .lista li {
-      margin-bottom: 10px;
-    }
-
-    code {
-      background: #f1f5f9;
-      color: #0f172a;
-      border-radius: 6px;
-      padding: 2px 6px;
-      word-break: break-all;
-    }
-
-    .pendencia {
-      color: var(--alerta);
-      font-weight: 700;
-    }
-
-    footer {
-      background: var(--azul-escuro);
-      color: white;
-      text-align: center;
-      padding: 22px 16px;
-      margin-top: 26px;
-    }
-
-    footer p {
-      color: rgba(255,255,255,0.9);
-      margin: 0;
-    }
-
-    @media (max-width: 680px) {
-      header {
-        padding: 42px 16px 32px;
-      }
-
-      .nav-container {
-        justify-content: flex-start;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-      }
-
-      nav a {
-        white-space: nowrap;
-      }
-
-      main {
-        padding: 0 14px 36px;
-      }
-
-      .entregas {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .links-list li { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        }
+    </style>
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
 
-  <header id="topo">
-    <div class="identificacao" aria-label="Identificação do portfólio">
-      <span class="pill">Vinilza Te da Costa</span>
-      <span class="pill">Disciplina de Algoritmos</span>
-      <span class="pill">Portfólio semestral</span>
-    </div>
-    <h1>Portfólio de Entregas da Disciplina de Algoritmos</h1>
-    <p>
-      Este site reúne as atividades desenvolvidas ao longo do semestre, organizadas por blocos temáticos.
-      Cada entrega apresenta objetivo, tecnologias ou recursos utilizados, resultado obtido e link de acesso ao artefato produzido.
-    </p>
-  </header>
+    <header>
+        <h1>Portfólio de Atividades</h1>
+        <p>Disciplina: Algoritmos e Programação — Registro de Entregas</p>
+    </header>
 
-  <nav aria-label="Navegação principal">
-    <div class="nav-container">
-      <a href="#sobre">Sobre</a>
-      <a href="#entregas">Entregas</a>
-      <a href="#relatorio">Relatório curto</a>
-      <a href="#entrega-final">Dados da entrega</a>
-      <a href="#autor">Autor</a>
-    </div>
-  </nav>
-
-  <main id="conteudo">
-    <section id="sobre">
-      <div class="card">
-        <h2>Sobre o portfólio</h2>
-        <p>
-          O portfólio foi desenvolvido como projeto final da disciplina de Algoritmos. A proposta é apresentar,
-          em uma única página publicada no GitHub Pages, as principais entregas realizadas durante o semestre,
-          facilitando a navegação, a consulta aos materiais e a avaliação do percurso de aprendizagem.
-        </p>
-        <p>
-          O desenvolvimento contou com apoio de ferramentas de inteligência artificial, como ChatGPT e Gemini,
-          utilizadas para auxiliar na organização textual, revisão de descrições e sugestões de estrutura visual.
-          As decisões finais de seleção, organização e publicação dos materiais são de responsabilidade da autora.
-        </p>
-
-        <div class="resumo-grid" aria-label="Resumo do portfólio">
-          <div class="resumo-item"><strong>21</strong><span>entregas catalogadas</span></div>
-          <div class="resumo-item"><strong>4</strong><span>blocos temáticos</span></div>
-          <div class="resumo-item"><strong>HTML + CSS</strong><span>site estático e responsivo</span></div>
-          <div class="resumo-item"><strong>GitHub Pages</strong><span>publicação do portfólio</span></div>
-        </div>
-
+    <main>
         
-      </div>
-    </section>
+        <h2 class="section-title">Quizzes e Diagnósticos</h2>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <h3>QUIZ - Lógica de Programação</h3>
+                    <p>Preparatório em aula.</p>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfh91LcrEEEhaibqB%209fM6Azo5-289mgWQmmJ-%20E%20VQVRXq0kw/viewform?hr%20submission=ChklwcCRxZcXEhAlxaGz9JcXEgcl8enEopcXEA%20E&authuser=0" target="_blank" class="btn">Acessar Quiz</a>
+            </div>
 
-    <section id="entregas">
-      <div class="card">
-        <h2>Catálogo de entregas</h2>
-        <p>
-          As atividades foram agrupadas para demonstrar a evolução da aprendizagem: fundamentos iniciais,
-          resolução de problemas, aplicações em engenharia e uso de inteligência artificial como apoio ao desenvolvimento.
-        </p>
-        
-      <section class="bloco" aria-labelledby="bloco-1">
-        <h3 id="bloco-1" class="bloco-titulo">1. Diagnóstico e fundamentos iniciais</h3>
-        <div class="entregas">
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">17 mar.</span>
-              <h3>Preenchimento do formulário de diagnóstico inicial</h3>
+            <div class="card">
+                <div>
+                    <h3>QUIZ - Diagnóstico de Lógica de Programação</h3>
+                    <p>Avaliação diagnóstica inicial da disciplina.</p>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfYZKKbUn3t8WJWeFVvWD0ZJeJpiguTwbpQH%201jAYjX0XM2Ttw/viewform?hr_submission=ChklwcCRxZcXEhAlhvyr7pcXEgcl8enEopcXEAE%20&authuser=0" target="_blank" class="btn">Acessar Diagnóstico</a>
             </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Registrar o perfil inicial da estudante e as condições de partida para a disciplina.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Formulário on-line, Google Drive e registro textual.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Entrega inicial organizada como evidência do diagnóstico da disciplina.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1eziZz6kZ6vcvkuvrtuGilFUaV4rDCV8R&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
+
+            <div class="card">
+                <div>
+                    <h3>Quiz de Avaliação da Atividade</h3>
+                    <p>Uso de LLMs em Algoritmos e Programação.</p>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-U-QnYvfQk4hprjcIRZIALSMI75CGeeSd63P4%20AGsn_OAShg/viewform?hr_submission=ChklwcCRxZcXEhAlw93Sov4YEgc18enEopcXEAE%20&authuser=0" target="_blank" class="btn">Acessar Avaliação</a>
             </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">20 mar.</span>
-              <h3>Quiz – Lógica de Programação (preparatório em aula)</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Praticar raciocínio lógico e conceitos introdutórios antes das atividades de programação.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Questionário on-line, lógica de programação e material de aula.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Quiz respondido e disponibilizado como parte do portfólio.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=17PssLYATqk7Eknv5uf1OMa7hRa9ntMST&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">27 mar.</span>
-              <h3>Quiz – Diagnóstico de Lógica de Programação</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Identificar conhecimentos prévios em lógica e reconhecer pontos que precisavam de reforço.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Questionário on-line e conceitos básicos de algoritmos.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Registro do desempenho inicial para acompanhar a evolução no semestre.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1RSH4wWK-ZEXPIaI5ic905NTp_FFgYnZN&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">31 mar.</span>
-              <h3>Lista de 15 exercícios: escolher e resolver</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Resolver exercícios introdutórios para consolidar interpretação de problemas e construção de soluções.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Lógica de programação, escrita de algoritmos e Google Drive.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Lista resolvida e registrada como evidência de prática inicial.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1SFrATpJevOTtkukSvMSQJgDVnkwJJwcP&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">10 abr.</span>
-              <h3>Lista de 10 exercícios da introdução a algoritmos com Python</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Aplicar estruturas básicas de programação em exercícios simples implementados em Python.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Python, variáveis, entrada e saída de dados, condicionais e operadores.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Exercícios resolvidos com foco na transição da lógica para código executável.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1lN2mkJunUG-ExZZvSTAapEu76IuR0x-q&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
         </div>
-      </section>
-      <section class="bloco" aria-labelledby="bloco-2">
-        <h3 id="bloco-2" class="bloco-titulo">2. Exercícios, listas e resolução de problemas</h3>
-        <div class="entregas">
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">10 abr.</span>
-              <h3>Geração e avaliação de exercícios de algoritmos com LLMs</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Experimentar o uso de modelos de linguagem para gerar e avaliar exercícios de algoritmos.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>ChatGPT, Gemini, lógica de programação e análise crítica de respostas.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Conjunto de exercícios avaliado criticamente, destacando potencialidades e limitações das IAs.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1GllL6gaupr1FDqqd31-m-nZIg2g_8iuz&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">10 abr.</span>
-              <h3>Quiz de avaliação da atividade: uso de LLMs em algoritmos e programação</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Consolidar a reflexão sobre o uso de inteligência artificial como apoio ao estudo de algoritmos.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Questionário on-line, ChatGPT, Gemini e conceitos de programação.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Quiz concluído, demonstrando compreensão sobre o uso responsável das ferramentas de IA.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1FDiTCjjHamakjBtv42XkgHylx6KzKhyc&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">21 abr.</span>
-              <h3>Resolver os 5 exercícios em papel</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Desenvolver raciocínio passo a passo antes da implementação em computador.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Resolução manual, pseudocódigo e lógica de programação.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Exercícios resolvidos manualmente, valorizando organização e clareza da solução.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1cgY5lY21lsCsM127ZGKRIgDG-4zpHY&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">24 abr.</span>
-              <h3>Exercícios de listas, vetores e arrays em Python</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Praticar manipulação de coleções de dados e repetição em Python.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Python, listas, vetores, arrays, laços de repetição e testes simples.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Soluções implementadas para problemas com armazenamento e processamento de dados.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1z3RsjECsoxVVFD7B681OjY857KP5tR31&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">24 abr.</span>
-              <h3>Formulação e resolução de problemas com vetores/listas usando LLMs</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Criar e resolver problemas envolvendo listas e vetores com apoio de IA, avaliando a qualidade das respostas.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Python, listas, ChatGPT, Gemini e revisão crítica.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Problemas formulados, resolvidos e analisados quanto à clareza e correção das soluções.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1dyQrrCqpcCydeuOc5M0gk_bAs2gWhP-Y&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-        </div>
-      </section>
-      <section class="bloco" aria-labelledby="bloco-3">
-        <h3 id="bloco-3" class="bloco-titulo">3. Problemas aplicados e evolução técnica</h3>
-        <div class="entregas">
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">05 mai.</span>
-              <h3>Diferentes versões do código até obter resultados visuais consistentes</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Evoluir uma solução por tentativa, teste e refinamento até produzir resultados mais claros.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Python, depuração, testes de versões e apoio de ferramentas de IA.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Código revisado em diferentes versões, com melhora progressiva da saída visual.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=17odZxzumkiNdTJWTn6uc7fDAP4yq6YR0&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">08 mai.</span>
-              <h3>Problemas de outras disciplinas – resolução em múltiplas abordagens</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Aplicar raciocínio algorítmico em problemas de outras áreas do curso.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Python, interpretação de problemas, matemática básica e lógica computacional.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Soluções comparadas por diferentes estratégias, ampliando a visão de aplicação dos algoritmos.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1r67PlD36WoxjSppXQBXlZEOITUdTXSol&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">12 mai.</span>
-              <h3>Escolher e entregar 1 dos dois problemas de engenharia propostos</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Resolver um problema aplicado de engenharia com descrição estruturada da solução.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Python, modelagem do problema, fórmulas e organização algorítmica.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Primeira solução aplicada documentada e vinculada ao portfólio.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1pY1yeFxbDFnnn-wZD2_lxq8tLQnHXAuW&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">15 mai.</span>
-              <h3>Entregar o outro dos dois problemas de engenharia propostos</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Completar a resolução do segundo problema de engenharia, comparando estratégias de solução.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Python, lógica aplicada e validação de resultados.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Segundo problema resolvido, ampliando a prática com problemas contextualizados.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1V9ccyWyJDyLT1vJUtGeUTKiU8VjJtKUG&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">19 mai.</span>
-              <h3>Escolher e resolver um problema de engenharia</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Selecionar um problema aplicado e propor uma solução computacional própria.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Python, análise do enunciado, decomposição do problema e testes.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Solução construída com foco na interpretação e na transformação do problema em algoritmo.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1_JRElNIdluABvRe5-DI5TJeXDWkbc-TF&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">22 mai.</span>
-              <h3>Evolução técnica da solução desenvolvida na atividade anterior</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Refinar a solução anterior, melhorando organização, clareza e qualidade técnica.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Python, modularização inicial, comentários e revisão de código.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Versão evoluída da solução, com maior clareza e melhor estrutura lógica.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1VUJxAMldQjUqLyPjx1KB8Iar6fpZuKQn&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-        </div>
-      </section>
-      <section class="bloco" aria-labelledby="bloco-4">
-        <h3 id="bloco-4" class="bloco-titulo">4. Projetos, inteligência artificial e portfólio</h3>
-        <div class="entregas">
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">09 jun.</span>
-              <h3>Modularização de código e avaliação de LLMs</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Organizar código em partes menores e avaliar o apoio das LLMs na melhoria das soluções.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Python, funções, modularização, ChatGPT, Gemini e análise crítica.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Solução reorganizada e reflexão sobre quando a IA ajuda ou precisa ser revisada.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1rnxcGXCpjTIbKoBqDvyALAU7365Ja4CY&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">09 jun.</span>
-              <h3>Breve relato sincero sobre as entrevistas</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Registrar percepções pessoais sobre a atividade de entrevistas e sua relação com a disciplina.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Produção textual, reflexão crítica e documentação do processo de aprendizagem.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Relato produzido como evidência de reflexão e participação na atividade.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1a9E7LMOLS7SuEVqb4SDwQYYgBMvOvURL&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">16 jun.</span>
-              <h3>Avaliação crítica do site Alegrete.org</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Analisar organização, navegação, usabilidade e oportunidades de melhoria em um site real.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>Avaliação de interface, critérios de usabilidade e escrita técnica.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Análise crítica registrada, identificando pontos positivos e melhorias possíveis.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1P6jomwmjqoO9bdvdz9PFVuhzFPBfvnlW&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">16 jun.</span>
-              <h3>Desenvolvimento assistido por IA para o portal Alegrete.org</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Usar IA como apoio para propor melhorias estruturais e visuais ao portal analisado.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>ChatGPT, Gemini, HTML, CSS, análise de layout e documentação.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Proposta de melhoria elaborada com apoio de IA e revisão humana.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1omHwNLZbOeIfI0ukPNHBjo8sp-4z9TcB&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-          <article class="entrega">
-            <div class="entrega-cabecalho">
-              <span class="tag">19 jun.</span>
-              <h3>Link e print do site publicado no GitHub.io</h3>
-            </div>
-            <dl class="detalhes">
-              <div>
-                <dt>Objetivo</dt>
-                <dd>Publicar o portfólio no GitHub Pages e registrar evidências de funcionamento.</dd>
-              </div>
-              <div>
-                <dt>Tecnologias e recursos</dt>
-                <dd>GitHub, GitHub Pages, HTML, CSS e captura de tela.</dd>
-              </div>
-              <div>
-                <dt>Resultado obtido</dt>
-                <dd>Site publicado em versão inicial e evidenciado por link e captura de tela.</dd>
-              </div>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://drive.google.com/open?id=1IbN103W8w7Wq3KZFFzl70yg6ECrMSgE_&amp;usp=drive_copy" target="_blank" rel="noopener noreferrer">Visualizar artefato</a>
-            </div>
-          </article>
-        </div>
-      </section>
-      </div>
-    </section>
 
 
-    <section id="entrega-final">
-      <div class="card">
-        <h2>Dados para a entrega final</h2>
-        <ul class="lista">
-          <li><strong>Link do repositório no GitHub.com:</strong> <span class="pendencia"> <a href="https://github.com/lista-do-meu-trabalho-da-disciplina/lista-do-meu-trabalho-da-disciplina.github.io.git" target="_blank" rel="noopener noreferrer">https://github.com/lista-do-meu-trabalho-da-disciplina/lista-do-meu-trabalho-da-disciplina.github.io.git</a></li>
-          <li><strong>URL do site publicado no GitHub.io:</strong> <a href="https://lista-do-meu-trabalho-da-disciplina.github.io/" target="_blank" rel="noopener noreferrer">https://lista-do-meu-trabalho-da-disciplina.github.io/</a> </li>
-          <li><strong>Último commit do repositório:</strong> <code>f5abbda2a7e20985ccfc4eb73fca2c641d0da69b</code></li>
+        <h2 class="section-title">Exercícios de Lógica e Algoritmos</h2>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <h3>Lista de 15 Exercícios</h3>
+                    <p>Escolher e resolver os exercícios propostos.</p>
+                </div>
+                <a href="https://docs.google.com/document/d/1DaYzS5Bbkz5M3sz_ejgalvYaCqHwMvpmQwhvTjTud%20Jk/edit?usp=classroom_web&authuser=0" target="_blank" class="btn">Ver Lista</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Geração e Avaliação de Exercícios</h3>
+                    <p>Criação e análise de algoritmos com o auxílio de LLMs.</p>
+                </div>
+                <a href="https://docs.google.com/document/d/1fxgvrr0v3QD62bTva6P3bcoUUOz0pge-CblkD-GB4Dk%20/edit?usp=classroom_web&authuser=0" target="_blank" class="btn">Ver Documento</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Resolver 5 Exercícios em Papel</h3>
+                    <p>Atividade prática manuscrita.</p>
+                </div>
+                <a href="https://drive.google.com/file/d/1z3RsjECsoxVVFD7B6810jY857KP5tR31/view?usp=%20classroom_web&authuser=0" target="_blank" class="btn">Abrir Arquivo</a>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--text-light);">Arquivos de Suporte da Atividade em Papel:</h3>
+        <ul class="links-list">
+            <li><span>Material de Apoio 1</span> <a href="https://drive.google.com/file/d/1r67PID36WoxjSppXQBXIZEOITUdTXSol/view?usp=classroom_web&authuser=0" target="_blank">Visualizar</a></li>
+            <li><span>Material de Apoio 2</span> <a href="https://drive.google.com/file/d/1rnxcGXCpjTlbKoBqDvyALAU7365Ja4CY/view?usp=classroom_web&authuser=0" target="_blank">Visualizar</a></li>
+            <li><span>Material de Apoio 3</span> <a href="https://drive.google.com/file/d/1pY1yeFxbDFnnn-wZD2lxq8tL0nHXAuW/view?usp=classroom_web&authuser=0" target="_blank">Visualizar</a></li>
+            <li><span>Material de Apoio 4</span> <a href="https://drive.google.com/file/d/1VUJxAMIdQjUqLyPjx1K" target="_blank">Visualizar</a></li>
+            <li><span>Material de Apoio 5</span> <a href="https://drive.google.com/file/d/1a9E7LMOLS7SuEVgb4SDwQYYgBMvOvURL/view?usp=classroom_web&authuser=0" target="_blank">Visualizar</a></li>
+            <li><span>Material de Apoio 6</span> <a href="https://drive.google.com/file/d/1a9E7LMOLS7SuEVgb4B8lar6fpZuKQn/view?usp=classroom_web&authuser=0" target="_blank">Visualizar</a></li>
+            <li><span>Material de Apoio 7</span> <a href="https://drive.google.com/file/d/1omHwNLZbOelfl0ukPNHBjo8sp-4z9TcB/view?usp=classroom_web&authuser=0" target="_blank">Visualizar</a></li>
+            <li><span>Material de Apoio 8</span> <a href="https://drive.google.com/file/d/1Q4DTmg6WnHzsXfli50eF0-gnwSkH8wV5/view?usp=classroom_web&authuser=0" target="_blank">Visualizar</a></li>
+            <li><span>Material de Apoio 9</span> <a href="https://drive.google.com/file/d/1lbN103W8w7Wq3KZFFz70yg6ECrMSgE/view?usp=classroom_web&authuser=0" target="_blank">Visualizar</a></li>
         </ul>
-      </div>
-    </section>
 
-    <section id="autor">
-      <div class="card">
-        <h2>Autor</h2>
-        <ul class="lista">
-          <li><strong>Nome:</strong> Vinilza Te da Costa</li>
-          <li><strong>Disciplina:</strong> Algoritmos e Programação</li>
-          <li><strong>Tipo de projeto:</strong> portfólio acadêmico de entregas semestrais</li>
-          <li><strong>Ferramentas de apoio:</strong> ChatGPT e Gemini para apoio na escrita, revisão e organização visual.</li>
-        </ul>
-      </div>
-    </section>
-  </main>
 
-  <footer>
-    <p>Portfólio acadêmico – Disciplina de Algoritmos</p>
-  </footer>
+        <h2 class="section-title">Estruturas de Dados e Resolução de Problemas</h2>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <h3>Exercícios de Listas/Vetores</h3>
+                    <p>Resolução de arrays e listas utilizando Python.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3MjM1NDcyNTQ0/details" target="_blank" class="btn">Ver Atividade</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Problemas com Vetores/Listas + LLMs</h3>
+                    <p>Formulação e resolução assistida por Inteligência Artificial.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3NDczMzk3%20Mzgy/details" target="_blank" class="btn">Ver Atividade</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Resultados Visuais em Código</h3>
+                    <p>Gerar diferentes versões do código até obter resultados visuais interessantes.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODYzMDE2ODM%20yNDUy/details" target="_blank" class="btn">Ver Atividade</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Problemas Multidisciplinares</h3>
+                    <p>Resolução de problemas de outras disciplinas com múltiplas abordagens.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODYzNjU2NzEy%20MTk1/details" target="_blank" class="btn">Ver Atividade</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Problema de Engenharia Proposto 1</h3>
+                    <p>Escolher e entregar um dos dois problemas propostos de engenharia.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY0MTM1NzI0%20NTcx/details" target="_blank" class="btn">Ver Atividade</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Problema de Engenharia Proposto 2</h3>
+                    <p>Entrega do segundo problema de engenharia proposto na aula anterior.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3ODMwODA%20zODA5/details" target="_blank" class="btn">Ver Atividade</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Problema de Engenharia Geral</h3>
+                    <p>Escolha autônoma e resolução de um problema técnico.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3ODY4MDAz%20NT13/details" target="_blank" class="btn">Ver Atividade</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Evolução Técnica da Solução</h3>
+                    <p>Aprimoramento técnico do código desenvolvido na atividade anterior.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY1NzkxMDYx%20ODM4/details" target="_blank" class="btn">Ver Atividade</a>
+            </div>
+        </div>
+
+
+        <h2 class="section-title">Modularização e Projeto Portal Alegrete</h2>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <h3>Modularização de Código</h3>
+                    <p>Avaliação técnica e práticas de modularização com LLMs em aula.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MTQzMjAx%20NjY2/details" target="_blank" class="btn">Ver Atividade</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Análise do site alegrete.org</h3>
+                    <p>Avaliação crítica da estrutura e usabilidade do portal alegrete.org.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjE2NTk1N%20DdetailsU0/" target="_blank" class="btn">Ver Atividade</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Desenvolvimento Assistido por IA</h3>
+                    <p>Aplicações práticas para melhorias no Portal Alegrete.org.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjE2NjI2Nz%20M2/details" target="_blank" class="btn">Ver Atividade</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Publicação no GitHub Pages</h3>
+                    <p>Postagem do link oficial e print do site gerado (.github.io).</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nz%20k4MjU3ODA0MTc5/details" target="_blank" class="btn">Ver Atividade</a>
+            </div>
+        </div>
+
+
+        <h2 class="section-title">Projeto Final e Encerramento</h2>
+        <div class="grid">
+            <div class="card">
+                <div>
+                    <h3>Projeto Final (Versão 1)</h3>
+                    <p>Portfólio de Entregas no GitHub.io — Versão inicial.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjkxNDc1Mjgy/d%20etails" target="_blank" class="btn">Ver Entrega v1</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Portfólio no GitHub.io (Versão 2)</h3>
+                    <p>Atividade prática de evolução e refinamento do Portfólio.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MzIzMzMzMTIw/%20details" target="_blank" class="btn">Ver Entrega v2</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>[ENTREGA FINAL] Projeto Final</h3>
+                    <p>Portfólio Consolidado de Entregas hospedado no GitHub.io.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjY0OTEwMDY1%20/details" target="_blank" class="btn" style="background-color: #dc2626;">Ver Entrega Final</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Avaliação por Pares</h3>
+                    <p>Atividade em aula de feedback e avaliação mútua dos portfólios.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY4ODUwNDMxNjE%201/etadils" target="_blank" class="btn">Acessar Atividade</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Autoavaliação Individual</h3>
+                    <p>Formulário de reflexão e notas individuais de desempenho.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY5MDIwNDEyMDU%20y/details" target="_blank" class="btn">Responder</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Mural de Portfólios</h3>
+                    <p>Verificação se o link do seu portfólio pessoal está publicado corretamente.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY5MDIxMjYxNTc4/%20details" target="_blank" class="btn">Verificar Mural</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Escolha do Melhor Portfólio</h3>
+                    <p>Votação e destaque para o melhor portfólio entre os colegas de classe.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY5MDIxMjc4NTM4/%20details" target="_blank" class="btn">Votar</a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3>Formulário Final da Disciplina</h3>
+                    <p>Encerramento oficial e avaliação geral do curso.</p>
+                </div>
+                <a href="https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODcwMzM4NzY1NjY1%20/details" target="_blank" class="btn">Responder Final</a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; Portfólio de Atividades Acadêmicas — Desenvolvido para a Disciplina de Algoritmos e Programação.</p>
+    </footer>
+
 </body>
 </html>
